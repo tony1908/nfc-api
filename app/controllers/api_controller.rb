@@ -1,4 +1,6 @@
 class ApiController < ApplicationController
+	include ActionController::MimeResponds
+  	include ActionController::ImplicitRender
 	respond_to :json
 	 rescue_from(ActiveRecord::RecordInvalid) do |invalid|
 	 response = {status: 'error', fields: invalid.record.errors}
