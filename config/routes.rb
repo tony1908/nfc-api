@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  controller :dashboard_user do
+  controller :api do
     get '/api' => :index#ruta para el index del dashboard, aqui va la vista con el jquery y ajax
    
   end 
