@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   controller :api do
     get '/api' => :index#ruta para el index del dashboard, aqui va la vista con el jquery y ajax
+    post '/api/resgistrar' => :resgistrar
+    get 'api/pagos' => :pagos
    
   end 
   # The priority is based upon order of creation: first created -> highest priority.
