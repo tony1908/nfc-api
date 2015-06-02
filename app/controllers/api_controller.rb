@@ -13,12 +13,14 @@ class ApiController < ApplicationController
 
 	 def validar_token
 	 	token = params[:token]
-	 	user = User.where(sign_token:token)
+	 	user = User.find_by_sign_token(token)
 	 	if user.blank?
 	 		
 	 	 	render json: {status: 1}
 	 	else
 	 		sign_in :user, user
+	 		$current_user = user
+	 		
 	 	end
 	 end
 
@@ -56,7 +58,8 @@ class ApiController < ApplicationController
 	end
 
 	def pagos
-		render :json => {message: 'hola'}
+		#render :json => {message2: $current_user.id}
+		respond_with $current_user.records
 	end
 
 	protected
